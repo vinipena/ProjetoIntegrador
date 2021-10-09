@@ -4,10 +4,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- CSS da Página-->
+   <!-- CSS da Página-->
+    
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/carrousel.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
     <title>ItapeVagas</title>
 </head>
   <body>
@@ -21,7 +22,7 @@
             </div>
             
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            <h1 >ItapeVagas</h1>
+            <h1 class="titulo" >ItapeVagas</h1>
         </nav>
     </header>
     <div class="container">
@@ -32,16 +33,52 @@
             </form>
         </section>
         <section class='nosso-projeto'>Nosso Projeto</section>
-        <section class= 'quem-somos'>Quem Somos</section>
+        
+        <section class= 'quem-somos'>
+            <h2 >Quem Somos</h2>
+           <!-- CARROUSEL DE CARDS -->
+            <div class="slideshow-container">
+
+                <!-- CARDS -->
+                <section class="mySlides fade">
+                    <h3 class=titulo-card>Vinicius Pena</h3>
+                    <div class="numbertext"></div>
+                    <img class="avatar-img" src="./avatar.png" alt="avatar"> 
+                    <article class="card-description"><p>Lorem Ipsum Dolor Lorem Ipsum Dolor Lorem Ipsum Dolor</p></article>
+                </section>
+                <div class="mySlides fade">
+                    <h3 class=titulo-card>Vinicius Pena</h3>
+                    <div class="numbertext"></div>
+                    <img class="avatar-img" src="./avatar.png" alt="avatar"> 
+                    <article class="card-description"><p>Lorem Ipsum Dolor Lorem Ipsum Dolor Lorem Ipsum Dolor</p></article>
+                </div>
+                <div class="mySlides fade">
+                    <h3 class=titulo-card>Vinicius Pena</h3>
+                    <div class="numbertext"></div>
+                    <img class="avatar-img" src="./avatar.png" alt="avatar"> 
+                    <article class="card-description"><p>Lorem Ipsum Dolor Lorem Ipsum Dolor Lorem Ipsum Dolor</p></article>
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+            
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
     </div>
     <footer class= 'rodape'>
-        Rodapé
+        Rodapé!
     </footer>
 
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- SCRIPTS DA PAGINA-->
     <script src="./scripts/scripts.js"></script>
+   
 </body>
 </html>

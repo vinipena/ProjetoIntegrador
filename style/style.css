@@ -1,6 +1,18 @@
+*{
+  font-family: sans-serif;
+}
+.titulo{
+  font-weight: bold;
+  font-size: 24px;
+  padding: 5px 15px;
+}
 .menu{
     display: flex;
     justify-content: space-between;
+    padding: 5px 15px;
+    border-radius: 5px; 
+    border:1px solid lightslategrey ;
+    box-shadow: lightslategrey
 }
 .sidenav {
     height: 100%;
@@ -21,7 +33,7 @@
     font-size: 20px;
     color: #fff;
     display: block;
-    transition: 0.3s;
+    transition: 0.5s;
   }
   
   .sidenav a:hover {
@@ -31,6 +43,7 @@
     position: absolute;
     top: 0;
     right: 25px;
+    font-weight: bold;
     font-size: 36px;
     margin-left: 50px;
   }
@@ -40,21 +53,29 @@
     .sidenav a {font-size: 18px;}
   }
 .container{
-    width: 100vw;
-
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
 }
 .search-bar{
     height: 70vh;
-    margin: 10px 0;
+    width: 100%;
+    margin: 10px 0auto;
     background: #FFFFFF;
-    border: 1px solid black;
+    padding: 5px;
+    border:1px solid lightslategrey ;
+    border-radius: 5px;
+    box-shadow: lightslategrey
 }
  .nosso-projeto,.quem-somos{
     background: #FFFFFF;
-    border: 1px solid black;
     margin: 10px 0;
     height: 30vh;
-
+    width: 100%;
+    border-radius: 5px;
+    border:1px solid lightslategrey ;
+    box-shadow: lightslategrey
 }
 
 .formulario-busca{
@@ -70,11 +91,36 @@
 .barra-busca{
     margin: 20px;
 }
+.quem-somos{
+  display: flex;
+  flex-direction: column;
+}
+.titulo-card{
+  padding: 5px;
+  text-align: center;
+}
+
+.avatar-img{
+  height: auto;
+  width: 40%;
+  padding: 10px;
+  float: right;
+}
+
+.card-description{
+  width: 60%;
+  height: 100%;
+  text-align: justify;
+  padding: 15px;
+  clear: left;
+  text-align: center;
+}
 
 .rodape{
     width: 100vw;
-    height: 128px;
+    height: 64px;
     margin-top: 5px;
     background: #FFFFFF;
-    border: 1px solid black;
+    border:1px solid lightslategrey ;
+    box-shadow: lightslategrey   
 }
