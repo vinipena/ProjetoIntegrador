@@ -3,6 +3,7 @@
 /* Slideshow container */
 .slideshow-container {
   width: inherit;
+  height: 100%;
   position: relative;
   margin: auto;
 }

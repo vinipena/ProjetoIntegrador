@@ -1,5 +1,6 @@
 *{
   font-family: sans-serif;
+  
 }
 .titulo{
   font-weight: bold;
@@ -8,85 +9,46 @@
 }
 .menu{
     display: flex;
+    width: 95vw;
+    margin: 0 auto;
     justify-content: space-between;
     padding: 5px 15px;
-    border-radius: 5px; 
-    border:1px solid lightslategrey ;
-    box-shadow: lightslategrey
+    
 }
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgb(56, 56, 56);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-  }
-  
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #fff;
-    display: block;
-    transition: 0.5s;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-weight: bold;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+
 .container{
-  width: 100vw;
+  width: 95vw;
   display: flex;
   flex-direction: column;
   align-items: baseline;
+  margin: 0 auto;
+  background: #FFFFFF;
 }
 .search-bar{
     height: 70vh;
     width: 100%;
-    margin: 10px 0auto;
+    margin: 10px auto 0 auto;
     background: #FFFFFF;
     padding: 5px;
-    border:1px solid lightslategrey ;
     border-radius: 5px;
-    box-shadow: lightslategrey
+   
 }
- .nosso-projeto,.quem-somos{
-    background: #FFFFFF;
-    margin: 10px 0;
-    height: 30vh;
+ .nosso-projeto{
+    height: 100%;
+    margin-top: 10px;
     width: 100%;
-    border-radius: 5px;
-    border:1px solid lightslategrey ;
-    box-shadow: lightslategrey
+    
 }
 
 .formulario-busca{
-    margin: 20% auto;
+    margin: 50% auto;
     display: flex;
     flex-direction: column;
 }
 
 .botao-busca{
     width: 98px;
-    margin: auto;
+    margin: 15px auto;
 }
 .barra-busca{
     margin: 20px;
@@ -94,6 +56,8 @@
 .quem-somos{
   display: flex;
   flex-direction: column;
+  height: 100%;
+  margin-top: 10px;
 }
 .titulo-card{
   padding: 5px;
@@ -117,10 +81,18 @@
 }
 
 .rodape{
-    width: 100vw;
+    width: 95vw;
     height: 64px;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin:10px auto 0 auto;
     background: #FFFFFF;
-    border:1px solid lightslategrey ;
-    box-shadow: lightslategrey   
+   
+}
+
+/* Atributos Universais*/
+
+.borda{
+  border:1px solid lightslategrey ;
+  box-shadow: lightslategrey;
+  border-radius: 5px;
 }
