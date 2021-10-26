@@ -1,0 +1,63 @@
+.container {
+  display: grid;
+  height: 70vh;
+  width: 100%;
+  margin-bottom: 15px;
+  font-family: Arial, sans-serif;
+  grid-gap: 5px;
+  grid-template-areas:
+    "header header header"
+    "main main aside1"
+    "main main aside2"
+    "footer footer footer";
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto 50% 50% auto;
+}
+.header {
+  grid-area: header;
+  width: 100%;
+ 
+}
+.menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+span{
+  margin: 15px;
+}
+.titulo{
+  font-weight: bold;
+  font-size: 24px;
+}
+.search-bar{
+  grid-area: main;
+  height:100%;
+  width:100%;
+}
+
+.nosso-projeto{
+  grid-area: aside1;
+  height: 100%;
+}
+.quem-somos {
+  grid-area: aside2;
+  height: 100%;
+}
+
+.rodape {
+  grid-area: footer;
+  height: 64px;
+  
+  background: #FFFFFF;
+  margin-top: 5px;
+}
+
+/* Atributos Universais*/
+.borda{
+  border:1px solid lightslategrey ;
+  box-shadow: lightslategrey;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px black;
+}

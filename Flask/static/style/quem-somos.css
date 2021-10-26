@@ -1,0 +1,14 @@
+.quem-somos{
+    height: 100%;
+  }
+  .titulo-card{
+    text-align: center;
+   
+  }
+  .avatar-img{
+   height: 80%;
+   float: left;
+  }
+  .card-description{
+    text-align: center;
+  }

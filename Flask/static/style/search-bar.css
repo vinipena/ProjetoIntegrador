@@ -1,0 +1,17 @@
+.search-bar{
+
+    background: #FFFFFF;
+    border-radius: 5px;
+  }
+  .formulario-busca{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .barra-busca{
+    width: 80%;
+  }
+  .botao-busca{
+    width: 100px;
+    margin: 15px auto;
+  }
