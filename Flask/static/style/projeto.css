@@ -1,3 +1,10 @@
 .nosso-projeto{
+  font-family: 'Roboto', sans-serif;
     height: 100%;
+    background-color: lightyellow;
+    padding: 25px;
+  }
+.titulo-projeto{
+    font-size: 1.5em;
+    padding: 5px;
   }

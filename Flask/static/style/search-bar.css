@@ -1,17 +1,43 @@
 .search-bar{
-
-    background: #FFFFFF;
+    width: 100%;
     border-radius: 5px;
-  }
-  .formulario-busca{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    background-color: lightyellow;
   }
+  .formulario-busca{
+    padding: 15px;
+    width: 100%;
+  }
+  .titulo-formulario-busca{
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.8em;
+    background-color: #00497e;
+    border-radius: 5px;
+    border: 1px solid #00497e;
+    box-shadow: 0px 0px 5px black;
+    color: #fff
+  }
+  
   .barra-busca{
-    width: 80%;
+    background-color: #fff;
+    width: 50%;
+    height: 3em;
+    padding: 1em;
+    
   }
   .botao-busca{
-    width: 100px;
-    margin: 15px auto;
+    height: 3em;
+    width: 128px;
+    color:#00497e;
+    border-radius: 5px;
+    padding: 5px;
   }
+
+@media screen and (max-width: 450px) {
+ .search-bar{
+   display:flex;
+   flex-direction: column;
+ } 
+}

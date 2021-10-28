@@ -12,6 +12,9 @@
     <link rel="stylesheet" href=".{{ url_for('static', filename='style/search-bar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/projeto.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
     <title>ItapeVagas</title>
 </head>
   <body>
@@ -25,43 +28,52 @@
             </div>
             
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            <h1 class="titulo" >ItapeVagas</h1>
+            <h1 class="titulo" >ITAPEVAGAS</h1>
         </nav>
     </header>
     <div class="container">
         <section class="search-bar borda">
             <form class="formulario-busca">
+                <label class='titulo-formulario-busca'>Busque sua Vaga:</label>
                 <input type="text" id="busca" class='barra-busca' name="busca" placeholder="Busque sua vaga!">
                 <input type="submit" class=' botao-busca' value="Buscar Vaga">
             </form>
         </section>
-        <section class='nosso-projeto borda' ><p>Nosso Projeto</p></section>
+        <section class='nosso-projeto borda'>
+            <h1 class="titulo-projeto">Nosso Projeto</h1>
+            <p>Este projeto tem como objeto o desenvolvimento de uma aplicação web para publicação de vagas de empregos na cidade de Itapevi.
+               Assim como a candidatura dos interessados nas vagas facilitando e aproximando empregadores e candidatos
+            </p>
+            <br>
+            <p>Desenvolvido na disciplina "Projeto Integrador" temos como objetivo proporcional a nossa sociedade uma integração com a 
+                universidade, fazendo com que nossos estudos beneficiem os municipes de Itapevi. 
+            </p>
+        </section>
         <section class= 'quem-somos borda'>
-            <h2 >Quem Somos</h2>
            <!-- CARROUSEL DE CARDS -->
             <div class="slideshow-container">
-
                 <!-- CARDS -->
                 {% for membro_grupo in lista_membros %}
                 <div class="mySlides fade">
-                    
-                    <img class="avatar-img" src="{{ url_for('static', filename='images/avatar.png') }}" alt="avatar"> 
-                    <article class="card-description">
+                    <a href='{{membro_grupo[2]}}'>
+                        <img class="avatar-img" src="{{ membro_grupo[3]}}" alt="avatar">
+                    </a> 
+                    <div class="card-description">
                         <h3 class=titulo-card>{{membro_grupo[0]}}</h3>
-                        <p>{{membro_grupo[1]}}</p>
-                    </article>
+                        <p class="card-text">{{membro_grupo[1]}}</p>
+                        
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 </div>
                 {%endfor%}
                 <!-- Next and previous buttons -->
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                
             </div>
-            <br>
-            
-            
     </div>
     <footer class= 'rodape borda'>
-        Rodapé!
+        <a href="https://itapevi.sp.gov.br/"><img class="logo" src="{{ url_for('static', filename='images/logo-itapevi.png') }}" alt="Logo Prefeitura de Itapevi"></a>
+        <a href="https://univesp.br/"><img class="logo" src="{{ url_for('static', filename='images/logo-univesp.png') }}" alt="logo Univesp"></a>
     </footer>
     <!-- SCRIPTS DA PAGINA-->
     <script type = "text/javascript" src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
