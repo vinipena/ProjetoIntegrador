@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<h1>Faça seu login</h1>
+<form method="POST"  class ='login-form'action="{{url_for('autenticar')}}">
+    <input type = 'hidden' name ='proxima' value ="{{ proxima or url_for('index')}}">
+    <p><label>Nome de usuário:</label> <input class="" type="text" name="usuario" required></p>
+    <p><label>Senha:</label> <input class="" type="password" name="senha" required></p>
+    <p> 
+        <button class="" type="submit">Entrar</button>
+        <button class="" type="button"> <a class="link" href="{{ url_for('novo_usuario') }}">Cadastrar Usuario</a></button>
+    </p>
+</form>
+</div>
+{% endblock %}

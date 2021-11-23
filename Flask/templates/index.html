@@ -1,36 +1,5 @@
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <!-- CSS da Página-->
-    <link rel ="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/menu.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/carrousel.css') }}">  
-    <link rel ="stylesheet" href="{{ url_for('static', filename='style/quem-somos.css') }}">
-    <link rel="stylesheet" href=".{{ url_for('static', filename='style/search-bar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/projeto.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
-    <title>ItapeVagas</title>
-</head>
-  <body>
-    <header> 
-        <nav class="menu borda">
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#">Home</a>
-                <a href="#">Candidatos</a>
-                <a href="#">Empresas</a>
-            </div>
-            
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            <h1 class="titulo" >ITAPEVAGAS</h1>
-        </nav>
-    </header>
+{% extends "template.html" %}
+{% block conteudo %}
     <div class="container">
         <section class="search-bar borda">
             <form class="formulario-busca">
@@ -42,7 +11,7 @@
         <section class='nosso-projeto borda'>
             <h1 class="titulo-projeto">Nosso Projeto</h1>
             <p>Este projeto tem como objeto o desenvolvimento de uma aplicação web para publicação de vagas de empregos na cidade de Itapevi.
-               Assim como a candidatura dos interessados nas vagas facilitando e aproximando empregadores e candidatos
+            Assim como a candidatura dos interessados nas vagas facilitando e aproximando empregadores e candidatos
             </p>
             <br>
             <p>Desenvolvido na disciplina "Projeto Integrador" temos como objetivo proporcional a nossa sociedade uma integração com a 
@@ -50,7 +19,7 @@
             </p>
         </section>
         <section class= 'quem-somos borda'>
-           <!-- CARROUSEL DE CARDS -->
+        <!-- CARROUSEL DE CARDS -->
             <div class="slideshow-container">
                 <!-- CARDS -->
                 {% for membro_grupo in lista_membros %}
@@ -71,12 +40,4 @@
                 
             </div>
     </div>
-    <footer class= 'rodape borda'>
-        <a href="https://itapevi.sp.gov.br/"><img class="logo" src="{{ url_for('static', filename='images/logo-itapevi.png') }}" alt="Logo Prefeitura de Itapevi"></a>
-        <a href="https://univesp.br/"><img class="logo" src="{{ url_for('static', filename='images/logo-univesp.png') }}" alt="logo Univesp"></a>
-    </footer>
-    <!-- SCRIPTS DA PAGINA-->
-    <script type = "text/javascript" src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
-   
-</body>
-</html>
+{% endblock %}

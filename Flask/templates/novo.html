@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+{% block conteudo %}
+  <form action="{{url_for('criar')}}" method="post">
+    <fieldset>
+      <div class="form-group">
+        <label for="titulo_vaga">Titulo da Vaga</label>
+        <input type="text" id="titulo_vaga" name="titulo_vaga" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="salario">Salário</label>
+        <input type="text" id="salario" name="salario" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="beneficios">Beneficios</label>
+        <input type="text" id="beneficios" name="beneficios" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="descricao_vaga">Descrição Vaga</label>
+        <input type="text" id="descricao_vaga" name="descricao_vaga" class="form-control">
+      </div>
+      <button class="btn btn-primary" type="submit">Salvar</button>
+    </fieldset>
+  </form>
+{% endblock %}

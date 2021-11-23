@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!-- CSS da Página-->
+    <link rel ="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/carrousel.css') }}">  
+    <link rel ="stylesheet" href="{{ url_for('static', filename='style/quem-somos.css') }}">
+    <link rel="stylesheet" href=".{{ url_for('static', filename='style/search-bar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/projeto.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/login.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <title>ItapeVagas</title>
+</head>
+  <body>
+    <header> 
+        <nav class="menu borda">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('login') }}">Empresas</a>
+            </div>
+            
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <h1 class="titulo" >ITAPEVAGAS</h1>
+        </nav>
+    </header>
+    {% block conteudo %}
+    {% endblock %}
+    <footer class= 'rodape borda'>
+        <a href="https://itapevi.sp.gov.br/"><img class="logo" src="{{ url_for('static', filename='images/logo-itapevi.png') }}" alt="Logo Prefeitura de Itapevi"></a>
+        <a href="https://univesp.br/"><img class="logo" src="{{ url_for('static', filename='images/logo-univesp.png') }}" alt="logo Univesp"></a>
+    </footer>
+    <!-- SCRIPTS DA PAGINA-->
+    <script type = "text/javascript" src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+   
+</body>
+</html>

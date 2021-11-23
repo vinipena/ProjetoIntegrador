@@ -1,20 +1,27 @@
 from flask import Flask, render_template, request, session, flash, redirect, url_for
+from dao import VagaDao
 from models import Empresa, Vaga
+from flask_mysqldb import MySQL
 
 app = Flask('__name__')
 app.secret_key ='itapevagas'
+app.config['MYSQL_HOST'] = "127.0.0.1"
+app.config['MYSQL_USER'] = "root"
+app.config['MYSQL_PASSWORD'] = "d29m1192"
+app.config['MYSQL_DB'] = "itapevagas"
+app.config['MYSQL_PORT'] = 3306
+db = MySQL(app)
+
+vagas_dao = VagaDao(db)
 
 empresa1 = Empresa('Empresa X','0001','X Company','Itapevi','empresax','empresax')
 
 
-vaga1 = Vaga('Auxiliar de Escritorio',empresa1.razao_social,empresa1.cidade,'Auxiliar na rotina administrativa','1500', 'VT + VR')
-vaga2 = Vaga('Auxiliar de Serviços Gerais',empresa1.razao_social,empresa1.cidade,'Manutenção e Zeladoria do escritorio','1500', 'VT + VR')
-lista_vagas =[]
-lista_usuarios = [{empresa1.usuario, empresa1}]
-usuarios = dict(lista_usuarios)
+usuarios = {empresa1.usuario: empresa1,}
 
 @app.route('/')
 def index():
+    lista_vagas = vagas_dao.listar()
     return render_template('index.html', titulo='Itapevagas', vagas=lista_vagas)
 
 @app.route('/novo')
@@ -32,8 +39,10 @@ def criar():
     salario = request.form['salario']
     beneficios = request.form['beneficios']
     descricao_vaga = request.form['descricao_vaga']
-    vaga = Vaga(titulo, empregador,cidade,salario, beneficios, descricao_vaga,)
-    lista_vagas.append(vaga)
+    carga_horaria = request.form['carga_horaria']
+    vaga = Vaga(empregador,cidade,titulo, descricao_vaga,carga_horaria, salario, beneficios,)
+    #lista_vagas.append(vaga)
+    vagas_dao.salvar(vaga)
     return redirect(url_for('index'))
 
 @app.route('/login')
@@ -50,6 +59,7 @@ def autenticar():
             flash(usuario.razao_social + ' logou com sucesso!')
             proxima_pagina = request.form['proxima']
             return redirect(proxima_pagina)
+
     else :
         flash('Não logado, tente de novo!')
         return redirect(url_for('login'))
