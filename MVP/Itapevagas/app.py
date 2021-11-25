@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, flash, redirect, url_for
-from dao import VagaDao
+from dao import VagaDao, EmpresaDao
 from models import Empresa, Vaga
 from flask_mysqldb import MySQL
 
@@ -13,20 +13,21 @@ app.config['MYSQL_PORT'] = 3306
 db = MySQL(app)
 
 vagas_dao = VagaDao(db)
-
-empresa1 = Empresa('Empresa X','0001','X Company','Itapevi','empresax','empresax')
-
-
-usuarios = {empresa1.usuario: empresa1,}
+empresa_dao =EmpresaDao(db)
 
 @app.route('/')
 def index():
+    if session['usuario_logado']:
+        mostra_botao = 'none'
+    else:
+        mostra_botao='inline'
     lista_vagas = vagas_dao.listar()
     return render_template('index.html', titulo='Itapevagas', vagas=lista_vagas)
 
 @app.route('/novo')
 def novo():
     if 'usuario_logado' not in session or session['usuario_logado'] == None:
+      
        #query string que redireciona após login para a rota de "novo.html" 
        return redirect(url_for('login', proxima=url_for('novo')))
     return render_template('novo.html', titulo='Nova vaga' )
@@ -34,8 +35,8 @@ def novo():
 @app.route('/criar', methods=['POST',])
 def criar():
     titulo = request.form['titulo_vaga']
-    empregador = usuarios.get(empresa1.razao_social)
-    cidade = usuarios.get(empresa1.cidade)
+    empregador = session.get('empresa')
+    cidade = session.get('cidade')
     salario = request.form['salario']
     beneficios = request.form['beneficios']
     descricao_vaga = request.form['descricao_vaga']
@@ -52,10 +53,12 @@ def login():
 
 @app.route('/autenticar', methods=['POST',])
 def autenticar():
-    if request.form['usuario'] in usuarios:
-        usuario = usuarios[request.form['usuario']]
-        if usuario.senha == request.form['senha']:
+    usuario = empresa_dao.buscar_por_id(request.form['usuario'])
+    if usuario:
+       if usuario.senha == request.form['senha']:
             session['usuario_logado'] =  usuario.usuario
+            session['empresa'] = usuario.razao_social
+            session['cidade_empresa'] =usuario.cidade
             flash(usuario.razao_social + ' logou com sucesso!')
             proxima_pagina = request.form['proxima']
             return redirect(proxima_pagina)
@@ -64,6 +67,7 @@ def autenticar():
         flash('Não logado, tente de novo!')
         return redirect(url_for('login'))
 
+        
 @app.route('/logout')
 def logout():
     session['usuario_logado'] = None
@@ -83,8 +87,12 @@ def criar_empresa():
     usuario = request.form['usuario']
     senha = request.form['senha']
     empresa = Empresa(razao_social, cnpj, nome_fantasia, cidade, usuario, senha,)
-    lista_usuarios.append({empresa.usuario, empresa})
-    usuarios = dict(lista_usuarios)
+    empresa_dao.salvar(empresa)
     return redirect(url_for('index'))
+
+@app.route('/vaga_view/<int:id>')
+def vaga_view(id):
+    vaga=vagas_dao.busca_por_id(id)
+    return render_template('vaga_view.html', vaga=vaga)
 
 app.run(debug=True)

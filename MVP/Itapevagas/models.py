@@ -1,8 +1,11 @@
 class Empresa:
-    def __init__(self,razao_social,cnpj, nome_fantasia,cidade, usuario, senha):
+    def __init__(self,razao_social,cnpj,e_mail, nome_fantasia,insc_estadual,cidade, usuario, senha, id=None):
+        self.id = id
         self.razao_social = razao_social
         self.cnpj = cnpj
+        self.e_mail=e_mail
         self.nome_fantasia = nome_fantasia
+        self.insc_estadual =insc_estadual
         self.cidade = cidade
         self.usuario = usuario
         self.senha = senha

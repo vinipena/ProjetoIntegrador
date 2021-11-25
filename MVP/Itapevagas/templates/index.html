@@ -10,23 +10,23 @@
         <table class="table table-striped table-responsive table-bordered">
         <thead>
             <tr>
-            
                 <th>Titulo da Vaga</th>                
                 <th>Descrição</th>
                 <th>Carga Horaria</th>
                 <th>Salario</th>
                 <th>Beneficios</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for vaga in vagas %}
                         <tr>
-                           
                             <td>{{ vaga.tituloVaga }}</td>
                             <td>{{ vaga.descricao }}</td>
                             <td>{{ vaga.cargaHoraria }}</td>
                             <td>{{ vaga.salario }}</td>
-                            <td>{{ vaga.beneficio }}</td>
+                            <td >{{ vaga.beneficio }}</td>
+                            <td><a href="{{url_for('vaga_view', id=vaga.id)}}"> <button class="btn btn-outline-success my-sm-0" type="submit">Candidatar</button></a></td>
                             
                         </tr>
         {% endfor %}

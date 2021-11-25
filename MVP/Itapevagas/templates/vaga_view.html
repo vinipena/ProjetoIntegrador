@@ -1,0 +1,18 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<div class="list-vaga-container">
+    <ul class='list-vaga'>
+        <label > Titulo da Vaga</label>
+        <li class='list-vaga-item'>{{vaga.tituloVaga}}</li>
+        <label > Descrição da Vaga</label>
+        <li class='list-vaga-item'>{{vaga.descricao}}</li>
+        <label > Carga Horaria</label>
+        <li class='list-vaga-item'>{{vaga.cargaHoraria}}</li>
+        <label > Salário</label>
+        <li class='list-vaga-item'>{{vaga.salario}}</li>
+        <label > Beneficios</label>
+        <li class='list-vaga-item'>{{vaga.beneficio}}</li>
+        <a href="mailto"><button type="">Candidatar</button></a>
+    </ul>
+</div>
+{% endblock %}

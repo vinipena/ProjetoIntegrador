@@ -1,3 +1,16 @@
 .link{
     text-decoration: none;
 }
+
+ul{
+    list-style: none;
+}
+.list-vaga-container{
+    border: 1px solid black;
+}
+.list-vaga{
+
+}
+.list-vaga-item{
+    margin: 15px;
+}
